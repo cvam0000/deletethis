@@ -10,70 +10,154 @@
 <html>
 <head>
   <style>
+    @import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);
+
+    body {
+    outine: none;
+    margin:0;
+    font-family: arial;
+
+    }
+
+    .container-view {
+      background: #FFCC5C;
+      height: 80px;
+      width: 100%;
+      position: absolute;
+    }
+
+    .role-line {
+    position: absolute;
+    width: 400px;
+    height:80px;
+    background: #AAD8B0;
+    text-align: center;
+    color: white;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    box-shadow: -0.1px -0.1px 0.1px rgba(0, 0, 250, 0.1),
+                 0.1px 0.1px 0.1px rgba(255,255,255,1),
+            inset 0.1px 0.1px 1px rgba(255, 255, 255,0.5),
+            inset 0.1px 1px 1px rgba(0, 0, 51,0.75),
+            inset -1px -1px 4px rgba(170, 216,176,0.5);
+    }
+
+    .role {
+    width:70px;
+    height: 80px;
+    top: 0px;
+    background: #FFCC5C;
+    position: absolute;
+    z-index: 10;
+    animation: inc;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    }
+
+    @keyframes inc{
+       0%{
+          width: 70px;
+       }
+       100%{
+          width: 350px;
+       }
+    }
+
+    .role-line i {
+    position: absolute;
+    z-index: 11;
+    top: 0px;
+    left: -5px;
+    }
+
+    .push {
+    position: absolute;
+    transform: rotate(90deg);
+    font-size: 6.1em;
+    margin-left: 0;
+    color: #96CEB4;
+    text-shadow: 1px 1px 1px black;
+    animation: move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    }
+
+    @keyframes move{
+       0%{
+          margin-left: 0%;
+       }
+       100%{
+          margin-left: 65%;
+       }
+    }
+
+    .nav {
+    display: flex;
+    //flex-wrap: wrap;
+    width: 500px;
+    height: 80px;
+    background: #AAD8B0;
+    z-index: 1000;
+    }
+
+    .nav a {
+    //color: #FFCC5C;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    transition: all .5s;
+    }
+
+
+    .nav a i {
+    font-size: 1.5em;
+    }
+
+    .nav a:hover {
+    color: #FFCC5C;
+    background: rgba(0,0,0, .2);
+    border-bottom: 10px solid #FFCC5C;
+    height: 30px;
+    padding-top: 10px;
+    }
   </style>
   </head>
-<body>
-<div class="navbar-wrapper">
-    <div class="container-fluid">
-        <nav class="navbar navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Logo</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" class="">Home</a></li>
-                        <li class=" dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
-                                </li>
-                                <li><a href="#">Add New</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Add New</a></li>
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">View Managers</a></li>
-                                <li><a href="#">Add New</a></li>
-                            </ul>
-                        </li>
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">View Staff</a></li>
-                                <li><a href="#">Add New</a></li>
-                                <li><a href="#">Bulk Upload</a></li>
-                            </ul>
-                        </li>
-                        <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Change Time Entry</a></li>
-                                <li><a href="#">Report</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Change Password</a></li>
-                                <li><a href="#">My Profile</a></li>
-                            </ul>
-                        </li>
-                        <li class=""><a href="#">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  <body>
+    <div class="container-view">
+    <div class="nav">
+      <a href="#"><i class="fas fa-home"></i></a>
+      <a href="#"><i class="fas fa-concierge-bell"> </i></a>
+      <a href="#"><i class="fas fa-chart-line"> </i></a>
+
+      <a href="#"><i class="fas fa-envelope"></i></a>
+      <a href="{% url 'logout'%}"><i class="fas fa-user"></i>
+      <a href="{% url 'logout'%}"><i class="fas fa-cog"></i>  
+</a>
+
+
     </div>
-</div>
+
+    <div class="role-line">
+      <h1> {% if user.is_authenticated %}
+      Hi {{ user.username }} XD </h1>
+      <div class="role">
+      </div>
+      <i class="fas fa-paint-roller push"></i>
+    </div>
+  </div>
+
+
+
 </body>
+
+
 </html>
 
 
