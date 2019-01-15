@@ -24,5 +24,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     #path('password-change/', views.PasswordChangeView.as_view(), name='password_change'),
 
-    path('timeline',include('timeline.urls')),
+    path('timeline/',include('timeline.urls')),
 ]

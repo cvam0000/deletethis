@@ -305,13 +305,14 @@
 	<li>
 		<div class="direction-r">
 			<div class="flag-wrapper">
-				<span class="flag">Freelancer</span>
-				<span class="time-wrapper"><span class="time">2013 - present</span></span>
+        {% if post.published_date %}
+				<span class="flag">{{ post.title }}</span>
+				<span class="time-wrapper"><span class="time">{{ post.published_date }}</span></span>
 			</div>
 			<div class="desc">My current employment. Way better than the position before!</div>
 		</div>
 	</li>
-
+{% endif %}
 	<!-- Item 2 -->
 	<li>
 		<div class="direction-l">

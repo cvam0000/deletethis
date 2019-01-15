@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import PostForm
+from django.utils import timezone
 # Create your views here.
 from django.http import HttpResponse
 from django.contrib.auth.models import User
@@ -23,10 +24,10 @@ def post_new(request):
                 post.author = request.user
                 post.published_date = timezone.now()
                 post.save()
-                return redirect('post_detail', pk=post.pk)
+                return redirect('timeline')
         else:
             form = PostForm()
             return render(request, 'timeline/form.html', {'form': form})
     else:
         a=redirect('login')
-        return a       
+        return a
