@@ -7,4 +7,5 @@ def index(request):
     if request.user.is_authenticated:
         return render(request,'timeline.html')
     else:
-        return ('url login')
+        a=redirect('login')
+        return a
