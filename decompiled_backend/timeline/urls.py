@@ -6,5 +6,6 @@ from . import views
 
 urlpatterns = [
     path('/',views.index , name='timeline' ),
+    path('/post/', views.post_new, name='post_new')
 
 ]
