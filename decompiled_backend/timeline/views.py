@@ -4,9 +4,11 @@ from django.utils import timezone
 # Create your views here.
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from .models import Post
 def index(request):
     if request.user.is_authenticated:
-        return render(request,'timeline.html')
+        posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        return render(request,'timeline.html',{'posts': posts})
     else:
         a=redirect('login')
         return a

@@ -299,20 +299,27 @@
 
 <!-- The Timeline -->
 
+
+
+
+
+
+
 <ul class="timeline">
 
-	<!-- Item 1 -->
+	{% for post in posts %}
 	<li>
-		<div class="direction-r">
+
+		<div class="direction-l">
 			<div class="flag-wrapper">
-        {% if post.published_date %}
+
 				<span class="flag">{{ post.title }}</span>
 				<span class="time-wrapper"><span class="time">{{ post.published_date }}</span></span>
 			</div>
-			<div class="desc">My current employment. Way better than the position before!</div>
+			<div class="desc"><b>{{post.user}}</b>My current employment. Way better than the position before!</div>
 		</div>
 	</li>
-{% endif %}
+{% endfor %}
 	<!-- Item 2 -->
 	<li>
 		<div class="direction-l">
