@@ -4,164 +4,340 @@
 
 {% block content %}
 
+ {% if user.is_authenticated %}
 
 
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-    @import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);
+
+    @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+    @import url(http://weloveiconfonts.com/api/?family=entypo);
+
+    [class*="entypo-"]:before {
+      font-family: 'entypo', sans-serif;
+    }
+
+
+
+    .title-pen {
+      color: #333;
+      font-family: "Coda", sans-serif;
+      text-align: center;
+    }
+    .title-pen span {
+      color: #55acee;
+    }
+
+    .user-profile {
+      margin: ;
+
+      background: #fff;
+      border-radius: .3em;
+    }
+
+    .user-profile  .username {
+      margin: auto;
+      margin-top: -4.40em;
+      margin-left: 5.80em;
+      color: #658585;
+      font-size: 1.53em;
+      font-family: "Coda", sans-serif;
+      font-weight: bold;
+    }
+    .user-profile  .bio {
+      margin: auto;
+      display: inline-block;
+      margin-left: 10.43em;
+      color: #e76043;
+      font-size: .87em;
+      font-family: "varela round", sans-serif;
+    }
+    .user-profile > .description {
+      margin: auto;
+      margin-top: 1.35em;
+      margin-right: 4.43em;
+      width: 14em;
+      color: #c0c5c5;
+      font-size: .87em;
+      font-family: "varela round", sans-serif;
+    }
+    .user-profile > img.avatar {
+    	padding: .7em;
+      margin-left: .3em;
+      margin-top: .3em;
+      height: 6.23em;
+      width: 6.23em;
+      border-radius: 18em;
+    }
+
+    .user-profile ul.data {
+    	margin: 2em auto;
+    	height: 3.70em;
+      background: #4eb6b6;
+      text-align: center;
+      border-radius: 0 0 .3em .3em;
+    }
+    .user-profile li {
+    	margin: 0 auto;
+      padding: 1.30em;
+      width: 33.33334%;
+      display: table-cell;
+      text-align: center;
+    }
+
+    .user-profile span {
+    	font-family: "varela round", sans-serif;
+    	color: #e3eeee;
+      white-space: nowrap;
+      font-size: 1.27em;
+      font-weight: bold;
+    }
+    .user-profile span:hover {
+      color: #daebea;
+    }
+
+    footer > h1 {
+      display: block;
+      text-align: center;
+      clear: both;
+      font-family: "Coda", sans-serif;
+      color: #343f3d;
+      line-height: 6;
+      font-size: 1.6em;
+    }
+    footer > h1 a {
+      text-decoration: none;
+      color: #ea4c89;
+    }
+
+        * {
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-    outine: none;
-    margin:0;
-    font-family: arial;
-
+      background-color: #e9eef2;
     }
 
-    .container-view {
-      background: #FFCC5C;
-      height: 80px;
-      width: 100%;
+    #nav-bar {
+      margin: 50px;
+      max-width: 50px;
+      border: 1px solid #bed1df;
+      border-radius: 4%;
+      background-color: white;
+      -webkit-box-shadow: -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
+      -moz-box-shadow:    -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
+      box-shadow:         -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
+    }
+
+    li {
+       color: #bed1df;
+       margin: 0;
+       font-family: 'Open Sans', sans-serif;
+       font-size: 0.75em;
+       list-style: none;
+    }
+
+    li.level-one {
+      font-size: 1.5em;
+      text-align: center;
+      border-top: 1px solid #bed1df;
+      cursor: pointer;
+    }
+
+    li.level-one:first-child {
+      border-top: none;
+    }
+
+    li.level-one:hover {
+      background: rgba(255,255,255,1);
+      background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(233,238,242,1)));
+      background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
+      background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
+      background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e9eef2', GradientType=0 );
+    }
+
+    #selected {
+      background: #3f8eb9;
+      -webkit-box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
+      -moz-box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
+      box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
+    }
+
+    i {
+      color: #bed1df;
+      margin: 25%;
+    }
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8em;
+      color: #bed1df;
+      margin: 50px;
+    }
+
+    a {
+      color: #3f8eb9;
+      text-decoration: none;
+    }
+
+    .level-one {
+      position: relative;
+    }
+
+    .level-two {
+      display: none;
       position: absolute;
+      height: 50px;
+      width: 100px;
+      background: #FFFFFF;
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.65em;
+      text-align: center;
     }
 
-    .role-line {
-    position: absolute;
-    width: 400px;
-    height:80px;
-    background: #AAD8B0;
-    text-align: center;
-    color: white;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50px;
-    box-shadow: -0.1px -0.1px 0.1px rgba(0, 0, 250, 0.1),
-                 0.1px 0.1px 0.1px rgba(255,255,255,1),
-            inset 0.1px 0.1px 1px rgba(255, 255, 255,0.5),
-            inset 0.1px 1px 1px rgba(0, 0, 51,0.75),
-            inset -1px -1px 4px rgba(170, 216,176,0.5);
+    .level-two:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 9px 9px 9px 0;
+      border-color: transparent  #fff;
+      display: block;
+      width: 0;
+      z-index: 1;
+      left: -9px;
+      top: 15px;
     }
 
-    .role {
-    width:70px;
-    height: 80px;
-    top: 0px;
-    background: #FFCC5C;
-    position: absolute;
-    z-index: 10;
-    animation: inc;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
+    .level-two li {
+      margin: 15px;
     }
 
-    @keyframes inc{
-       0%{
-          width: 70px;
-       }
-       100%{
-          width: 350px;
-       }
+    .level-one:hover > .level-two {
+      display: block;
     }
 
-    .role-line i {
-    position: absolute;
-    z-index: 11;
-    top: 0px;
-    left: -5px;
+    .level-two {
+      left: 130%;
+      top: 0;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
     }
 
-    .push {
-    position: absolute;
-    transform: rotate(90deg);
-    font-size: 6.1em;
-    margin-left: 0;
-    color: #96CEB4;
-    text-shadow: 1px 1px 1px black;
-    animation: move;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
     }
 
-    @keyframes move{
-       0%{
-          margin-left: 0%;
-       }
-       100%{
-          margin-left: 65%;
-       }
-    }
-
-    .nav {
-    display: flex;
-    //flex-wrap: wrap;
-    width: 500px;
-    height: 80px;
-    background: #AAD8B0;
-    z-index: 1000;
-    }
-
-    .nav a {
-    //color: #FFCC5C;
-    width: 80px;
-    height: 40px;
-    text-align: center;
-    color: white;
-    padding-top: 20px;
-    transition: all .5s;
-    }
-
-
-    .nav a i {
-    font-size: 1.5em;
-    }
-
-    .nav a:hover {
-    color: #FFCC5C;
-    background: rgba(0,0,0, .2);
-    border-bottom: 10px solid #FFCC5C;
-    height: 30px;
-    padding-top: 10px;
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
     }
   </style>
-  </head>
-  <body>
-    <div class="container-view">
-    <div class="nav">
-      <a href="#"><i class="fas fa-home"></i></a>
-      <a href="#"><i class="fas fa-concierge-bell"> </i></a>
-      <a href="#"><i class="fas fa-chart-line"> </i></a>
+</head>
+<body>
 
-      <a href="#"><i class="fas fa-envelope"></i></a>
-      <a href="{% url 'logout'%}"><i class="fas fa-user"></i>
-      <a href="{% url 'password_change'%}"><i class="fas fa-cog"></i>  
-</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
 
 
-    </div>
+      <div class="user-profile">
+          <img class="avatar" src="https://images-na.ssl-images-amazon.com/images/I/419FVFVSdML._SY355_.jpg" alt="Ash" />
+            <div class="username">{{ user.username }} </div>
+          <div class="bio">
+            Senior backend Designer
+          </div>
+            <div class="description">
+              I use to design websites and applications
+              for the web.
+          </div>
 
-    <div class="role-line">
-      <h1> {% if user.is_authenticated %}
-      Hi {{ user.username }} XD </h1>
-      <div class="role">
+        </div>
+
       </div>
-      <i class="fas fa-paint-roller push"></i>
     </div>
+
+    <div class="col-sm-8">
+
+      <ul id="nav-bar">
+        <li class="level-one" id="selected"><i class="fa fa-home"></i>
+          <ul class="level-two">
+            <li>Home<li/>
+          </ul>
+        </li>
+        <a href="{% url 'timeline' %}"><li class="level-one"><i class="fa fa-refresh"></i>
+          <ul class="level-two">
+            <li>Timeline!<li/>
+          </ul>
+        </li></a>
+
+        <li class="level-one"><i class="fa fa-comment"></i>
+          <ul class="level-two">
+            <li>Chat<li/>
+          </ul>
+        </li>
+
+        <li class="level-one"><i style="font-size:24px" class="fa">&#xf1fe;</i>
+          <ul class="level-two">
+            <li>Socialmedia<li/>
+          </ul>
+         </li>
+
+         <li class="level-one"><i class="fa fa-cog"></i>
+           <ul class="level-two">
+             <li>Change password<li/>
+           </ul>
+          </li>
+
+
+
+
+      <a href="{%url 'logout'%}" > <li class="level-one"><i class="fa fa-power-off"></i>
+          <ul class="level-two">
+            <li>logout!<li/>
+          </ul>
+        </li> </a>
+
+      </ul>
+
+
+
+     </div>
   </div>
 
 
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
 
 </body>
-
-
 </html>
-
-
-
 
 {% else %}
   <p>You are not logged in</p>

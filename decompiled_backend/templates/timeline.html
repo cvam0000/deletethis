@@ -305,12 +305,18 @@
 
 
 
+
+
 <ul class="timeline">
 
-	{% for post in posts %}
+{% for post in posts %}
 	<li>
-   {%if c%2==0 %}
-		<div class="direction-"{{a}}>
+
+		<div class="direction-r">
+
+
+
+
 			<div class="flag-wrapper">
 
 				<span class="flag">{{ post.title }}</span>
@@ -343,5 +349,14 @@
 	</li>
 
 </ul>
+<script>
+var cars = ["l", "r"];
+var text = "";
+var i;
+for (i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
 </body>
 </html>
