@@ -1,9 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<body>
+
+
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"></i><img height="30px" src="https://www.cronbyte.com/cronbyte.svg"></a>
+  <a href={%url 'timeline' %} class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Timeline"><i class="fa fa-history"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Chat"><i class="fa fa-comments"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Social media"><i class="fa fa-forumbee"></i></a>
+  <a href={% url 'logout' %} class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="logout"><i class="fa fa-power-off"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Change password"><i class="fa fa-cog"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+    <i class="fa fa-user"></i></a>
+  </a>
+ </div>
+</div>
+	
     <h2>Update Timeline </h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+ </body>   
 {% endblock %}
