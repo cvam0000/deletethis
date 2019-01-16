@@ -25,4 +25,5 @@ urlpatterns = [
     #path('password-change/', views.PasswordChangeView.as_view(), name='password_change'),
 
     path('timeline/',include('timeline.urls')),
+    path('chat/',include('chat.urls'))
 ]
