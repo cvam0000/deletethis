@@ -309,8 +309,8 @@
 
 	{% for post in posts %}
 	<li>
-
-		<div class="direction-l">
+   {%if c%2==0 %}
+		<div class="direction-"{{a}}>
 			<div class="flag-wrapper">
 
 				<span class="flag">{{ post.title }}</span>

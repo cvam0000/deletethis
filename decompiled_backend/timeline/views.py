@@ -12,6 +12,12 @@ def index(request):
     else:
         a=redirect('login')
         return a
+def random(request):
+     rt={
+     'a':'l'
+     'c': 0
+     }
+     return render (request,'timeline.html',context=rt)
 
 
 
