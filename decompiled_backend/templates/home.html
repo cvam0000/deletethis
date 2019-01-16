@@ -8,339 +8,393 @@
 
 
 
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
+<html>
+<title>Admin-cronbyte</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+.chart-timeline_heartrate .c3-legend-item,
+.chart-scatter_exercise .c3-legend-item { display: none; }
 
-    @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
-    @import url(http://weloveiconfonts.com/api/?family=entypo);
+</style>
+<body class="w3-theme-l5">
 
-    [class*="entypo-"]:before {
-      font-family: 'entypo', sans-serif;
-    }
-
-
-
-    .title-pen {
-      color: #333;
-      font-family: "Coda", sans-serif;
-      text-align: center;
-    }
-    .title-pen span {
-      color: #55acee;
-    }
-
-    .user-profile {
-      margin: ;
-
-      background: #fff;
-      border-radius: .3em;
-    }
-
-    .user-profile  .username {
-      margin: auto;
-      margin-top: -4.40em;
-      margin-left: 5.80em;
-      color: #658585;
-      font-size: 1.53em;
-      font-family: "Coda", sans-serif;
-      font-weight: bold;
-    }
-    .user-profile  .bio {
-      margin: auto;
-      display: inline-block;
-      margin-left: 10.43em;
-      color: #e76043;
-      font-size: .87em;
-      font-family: "varela round", sans-serif;
-    }
-    .user-profile > .description {
-      margin: auto;
-      margin-top: 1.35em;
-      margin-right: 4.43em;
-      width: 14em;
-      color: #c0c5c5;
-      font-size: .87em;
-      font-family: "varela round", sans-serif;
-    }
-    .user-profile > img.avatar {
-    	padding: .7em;
-      margin-left: .3em;
-      margin-top: .3em;
-      height: 6.23em;
-      width: 6.23em;
-      border-radius: 18em;
-    }
-
-    .user-profile ul.data {
-    	margin: 2em auto;
-    	height: 3.70em;
-      background: #4eb6b6;
-      text-align: center;
-      border-radius: 0 0 .3em .3em;
-    }
-    .user-profile li {
-    	margin: 0 auto;
-      padding: 1.30em;
-      width: 33.33334%;
-      display: table-cell;
-      text-align: center;
-    }
-
-    .user-profile span {
-    	font-family: "varela round", sans-serif;
-    	color: #e3eeee;
-      white-space: nowrap;
-      font-size: 1.27em;
-      font-weight: bold;
-    }
-    .user-profile span:hover {
-      color: #daebea;
-    }
-
-    footer > h1 {
-      display: block;
-      text-align: center;
-      clear: both;
-      font-family: "Coda", sans-serif;
-      color: #343f3d;
-      line-height: 6;
-      font-size: 1.6em;
-    }
-    footer > h1 a {
-      text-decoration: none;
-      color: #ea4c89;
-    }
-
-        * {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #e9eef2;
-    }
-
-    #nav-bar {
-      margin: 50px;
-      max-width: 50px;
-      border: 1px solid #bed1df;
-      border-radius: 4%;
-      background-color: white;
-      -webkit-box-shadow: -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
-      -moz-box-shadow:    -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
-      box-shadow:         -2px 3px 2px 0px rgba(5, 0, 0, 0.11);
-    }
-
-    li {
-       color: #bed1df;
-       margin: 0;
-       font-family: 'Open Sans', sans-serif;
-       font-size: 0.75em;
-       list-style: none;
-    }
-
-    li.level-one {
-      font-size: 1.5em;
-      text-align: center;
-      border-top: 1px solid #bed1df;
-      cursor: pointer;
-    }
-
-    li.level-one:first-child {
-      border-top: none;
-    }
-
-    li.level-one:hover {
-      background: rgba(255,255,255,1);
-      background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
-      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(233,238,242,1)));
-      background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
-      background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
-      background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
-      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(233,238,242,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e9eef2', GradientType=0 );
-    }
-
-    #selected {
-      background: #3f8eb9;
-      -webkit-box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
-      -moz-box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
-      box-shadow: inset 1px 1px 10px 1px rgba(0,0,0,0.45);
-    }
-
-    i {
-      color: #bed1df;
-      margin: 25%;
-    }
-
-    p {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 0.8em;
-      color: #bed1df;
-      margin: 50px;
-    }
-
-    a {
-      color: #3f8eb9;
-      text-decoration: none;
-    }
-
-    .level-one {
-      position: relative;
-    }
-
-    .level-two {
-      display: none;
-      position: absolute;
-      height: 50px;
-      width: 100px;
-      background: #FFFFFF;
-      border-radius: 4px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 0.65em;
-      text-align: center;
-    }
-
-    .level-two:after {
-      content: '';
-      position: absolute;
-      border-style: solid;
-      border-width: 9px 9px 9px 0;
-      border-color: transparent  #fff;
-      display: block;
-      width: 0;
-      z-index: 1;
-      left: -9px;
-      top: 15px;
-    }
-
-    .level-two li {
-      margin: 15px;
-    }
-
-    .level-one:hover > .level-two {
-      display: block;
-    }
-
-    .level-two {
-      left: 130%;
-      top: 0;
-    }
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
-
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height: auto;}
-    }
-  </style>
-</head>
-<body>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-
-
-      <div class="user-profile">
-          <img class="avatar" src="https://images-na.ssl-images-amazon.com/images/I/419FVFVSdML._SY355_.jpg" alt="Ash" />
-            <div class="username">{{ user.username }} </div>
-          <div class="bio">
-            Senior backend Designer
-          </div>
-            <div class="description">
-              I use to design websites and applications
-              for the web.
-          </div>
-
-        </div>
-
-      </div>
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"></i><img src="file:///home/cvam/cronbyte/cronbyte.svg"></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
     </div>
-
-    <div class="col-sm-8">
-
-      <ul id="nav-bar">
-        <li class="level-one" id="selected"><i class="fa fa-home"></i>
-          <ul class="level-two">
-            <li>Home<li/>
-          </ul>
-        </li>
-        <a href="{% url 'timeline' %}"><li class="level-one"><i class="fa fa-refresh"></i>
-          <ul class="level-two">
-            <li>Timeline!<li/>
-          </ul>
-        </li></a>
-
-        <li class="level-one"><i class="fa fa-comment"></i>
-          <ul class="level-two">
-            <li>Chat<li/>
-          </ul>
-        </li>
-
-        <li class="level-one"><i style="font-size:24px" class="fa">&#xf1fe;</i>
-          <ul class="level-two">
-            <li>Socialmedia<li/>
-          </ul>
-         </li>
-
-         <li class="level-one"><i class="fa fa-cog"></i>
-           <ul class="level-two">
-             <li>Change password<li/>
-           </ul>
-          </li>
-
-
-
-
-      <a href="{%url 'logout'%}" > <li class="level-one"><i class="fa fa-power-off"></i>
-          <ul class="level-two">
-            <li>logout!<li/>
-          </ul>
-        </li> </a>
-
-      </ul>
-
-
-
-     </div>
   </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+    <img src="/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         
+         <p class="w3-center"><img src="https://vignette.wikia.nocookie.net/steven-universe/images/4/4c/Pink-panther-1024x768.png/revision/latest?cb=20151220231334" class="w3-circle" style="height:106px;" alt="Avatar"></p>
+         <hr>
+        <center> 
+             
+        
+      <button type="button" class="w3-button w3-theme"><i class="fa fa-user"></i> {{ user.username }}</button></center>
+
+<br><br>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-history fa-fw w3-margin-right"></i> Timeline</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-forumbee fa-fw w3-margin-right"></i> Social media</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-comments fa-fw w3-margin-right"></i> Chat</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>      
+      </div>
+      <br>
+     
+   
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              
+              <p contenteditable="true" class="w3-border w3-padding">Timelinne: Post on timeline</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <div class="container">
+                       <div class="row">
+                              <div class="col-xs-12">
+                                     <h2 class="page-header">Charts</h2>
+                               <div class="chart chart-timeline_heartrate js-chart-timeline_heartrate"></div>
+                                <br/><br/>
+     
+      
+                               </div>
+                             </div>
+                            </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        
 
 
-<footer class="container-fluid">
-  <p>Footer Text</p>
+use me 
+
+      </div>  
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        
+
+use me
+
+
+      </div> 
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Cronbyte.com</p>
+          
+          <p><strong>Hitcount</strong></p>
+          
+          <p><button class="w3-button w3-block w3-theme-l4"><b>2.5K</b></button></p>
+        </div>
+      </div>
+      <br>
+</div>
+
+       <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Decompiled.com</p>
+          
+          <p><strong>Hitcount</strong></p>
+          
+          <p><button class="w3-button w3-block w3-theme-l4"><b>9.5K</b></button></p>
+        </div>
+      </div>
+      <br>
+      
+    
+      
+      
+      
+      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <p><i class="fa fa-bug w3-xxlarge"></i></p>
+      </div>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>fuck you people</h5>
 </footer>
 
-</body>
-</html>
 
-{% else %}
+ 
+
+
+</body>
+</html> 
+
+<script type="text/javascript">
+  
+  var chart_timeline = c3.generate({
+    bindto: '.js-chart-timeline_heartrate',
+    data: {
+      x: 'x',
+      //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+      columns: [
+      ['x', '2016-01-01', '2016-01-02', '2016-01-03', '2016-01-04', '2016-01-05', '2016-01-06', '2016-01-07', '2016-01-08', '2016-01-09', '2016-01-10', '2016-01-11', '2016-01-12', '2016-01-13', '2016-01-14', '2016-01-15', '2016-01-16', '2016-01-17', '2016-01-18', '2016-01-19', '2016-01-20', '2016-01-21', '2016-01-22', '2016-01-23', '2016-01-24', '2016-01-25', '2016-01-26', '2016-01-27', '2016-01-28', '2016-01-29', '2016-01-30', '2016-02-01'],
+      ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250,30, 200, 100, 400, 150, 250,30, 200, 100, 400, 150, 250, 30, 45, 100, 45, 65, 75]
+      ]
+    },
+    axis: {
+      x: {
+        type: 'timeseries',
+        label: 'Date',
+        tick: {
+          fit: true,
+          rotate: 55,
+          outer: false,
+          count: 31,
+          format: '%m/%d/%y',
+          culling: false
+        }
+      },
+      y: {
+      tick: {
+        fit: true,
+        culling: false,
+        outer: false
+      }
+    }
+    },
+   regions: [{
+    start: '2016-01-05',
+    end: '2016-01-20'
+  }]
+  });
+
+var chart_exercise = c3.generate({
+  bindto: '.js-chart-scatter_exercise-daily',
+  data: {
+    selection: {
+      enabled: true
+    },
+    x: 'date',
+    columns: [
+      ['date', '2016-01-01', '2016-01-02', '2016-01-03', '2016-01-04', '2016-01-05', '2016-01-06', '2016-01-07', '2016-01-08', '2016-01-09', '2016-01-10', '2016-01-11', '2016-01-12', '2016-01-13', '2016-01-14', '2016-01-15', '2016-01-16', '2016-01-17', '2016-01-18', '2016-01-19', '2016-01-20', '2016-01-21', '2016-01-22', '2016-01-23', '2016-01-24', '2016-01-25', '2016-01-26', '2016-01-27', '2016-01-28', '2016-01-29', '2016-01-30', '2016-02-01'],
+      ['data2', 10, 10, 10, null, null, 20, 40, 20, 60, 80, null, 40, 40, 40, 10, 10, null, 10, null, 10, 10, 10, null, null, 10, 20, 40, 20, 60, 10, ]
+    ],
+    type: 'timeseries',
+    types: {
+      data2: 'scatter'
+    },
+    groups: [
+      ['date'],
+      ['data2']
+    ]
+  },
+  axis: {
+    x: {
+      type: 'timeseries',
+      label: 'Date',
+      tick: {
+        fit: true,
+        rotate: 55,
+        outer: false,
+        count: 31,
+        format: '%m/%d/%y',
+        culling: false
+      }
+    },
+    y: {
+      label: {
+        text: 'Minutes',
+        position: 'outer-middle'
+      },
+      tick: {
+        count: 5,
+        values: [10, 20, 40, 60, 80],
+        fit: true,
+        culling: false,
+        outer: false
+      }
+    }
+  },
+  grid: {
+    y: {
+      lines: [{
+        value: 10
+      }, {
+        value: 20
+      }, {
+        value: 40
+      }, {
+        value: 60
+      }, {
+        value: 80
+      }]
+    }
+  },
+  regions: [{
+    start: '2016-01-05',
+    end: '2016-01-20'
+  }]
+
+});
+
+var chart_bar = c3.generate({
+  bindto: '.js-chart-bar_exercise-weekly',
+    data: {
+      x: 'x',
+      columns: [
+          ['x', 'Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12'],
+             ['0-10', 2, 2, 5, 4, 5, 4, 3, 4, 5, 2, 2, 1],
+            ['10-20', 3, 3, 2, 2, 1, 2, 4, 2, 2, 3, 0, 2],
+            ['20-40', 3, 4, 0, 2, 1, 1, 3, 2, 2, 3, 4, 2],
+            ['40-60', 2, 1, 0, 0, 0, 1, 3, 2, 2, 2, 4, 2],
+     ['More than 60', 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 3, 2]
+        ], 
+        type: 'bar',
+
+        groups: [
+            ['0-10', '10-20', '20-40', '40-60', 'More than 60']
+        ]
+    },
+    axis: {
+      y: {
+        label: {
+          text: 'Number of Responses',
+          position: 'outer-middle'
+        }
+      },
+     x: {
+      type: 'category',
+      tick: {
+        fit: true,
+        rotate: 55,
+        outer: false,
+        count: 12,
+        culling: false,
+        multiline: false   
+      },
+       height: 60
+     }
+    },
+    regions: [{
+    start: '1',
+    end: '5'
+  }],
+  tooltip: {
+        format: {
+            title: function (d) { return '(MM/DD/YYYY - MM/DD/YYYY)'; },
+            value: function (value) {
+                var format = 12;
+                return (value);
+            }
+        }
+    }
+});
+
+
+</script>
+
+
+
+ {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
 {% endif %}
 {% endblock %}
+
+
