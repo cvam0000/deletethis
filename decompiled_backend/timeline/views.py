@@ -5,6 +5,10 @@ from django.utils import timezone
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import Post
+import telepot
+
+
+
 def index(request):
     if request.user.is_authenticated:
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -14,7 +18,16 @@ def index(request):
         return a
 
 
-
+def bot(a):
+    if a:
+        bot = telepot.Bot('438212244:AAGQ1VhzLHowzxUTFiT6GTirIVxjL3PO79I')
+        #po = Post.objects.latest('id')
+        po=Post.objects.all()
+        #c=Post.published_date.last()
+        #result = [Post.published_date.latest('date_added')]
+        text=po[1]
+        bot.sendMessage(499134543, '1')
+        bot.sendMessage(680139252, '1')
 
 
 
@@ -26,6 +39,8 @@ def post_new(request):
                 post = form.save(commit=False)
                 post.author = request.user
                 post.published_date = timezone.now()
+                a=1
+                bot(a)
                 post.save()
                 return redirect('timeline')
         else:
