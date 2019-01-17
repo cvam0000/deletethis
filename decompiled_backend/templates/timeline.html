@@ -126,29 +126,33 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     </div>
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
     
-    
+
+
       
+<button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post on timeline</button> </a>
+
+
+ 
+        
+      
+
+
+    <div class="w3-col m7">
+    {% for post in posts %}
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <h3>timeline</h3>
-      </div>
+        <img src="https://cdn.shopify.com/s/files/1/1325/3287/products/MGM123_2000x.png?v=1546257661" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">{{ post.published_date }}</span>
+        <h4>{{post.author}}</h4><br>
+        <hr class="w3-clear">
+        <b><u>Title : {{ post.title }}</u></b>
+        <p>{{ post.title }}</p>
+        
+      </div>  {% endfor %}
+      
+    </div>  
 
 
-      {% for post in posts %}
-  
-       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <p><button class="w3-button w3-block w3-theme-l4"><b>{{ post.title }}</b></button></p>
-        <p><button class="w3-button w3-block w3-theme-l4"><b>{{ post.published_date }}</b></button></p>
-
-        {{post.author}}
-        
-      </div>  
-        
-        
-        
-  
-{% endfor %}
       
       
 
@@ -157,41 +161,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     <!-- End Middle Column -->
     </div>
     
-    <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Cronbyte.com</p>
-          
-          <p><strong>Hitcount</strong></p>
-          
-          <p><button class="w3-button w3-block w3-theme-l4"><b>2.5K</b></button></p>
-        </div>
-      </div>
-      <br>
-</div>
-
-       <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Decompiled.com</p>
-          
-          <p><strong>Hitcount</strong></p>
-          
-          <p><button class="w3-button w3-block w3-theme-l4"><b>9.5K</b></button></p>
-        </div>
-      </div>
-      <br>
-      
-    
       
       
       
-      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-        <p>
-<a href="/post">
-<button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post on timeline</button> </a>
-
         </p>
       </div>
       
