@@ -22,27 +22,29 @@ def bot(a):
     if a:
         bot = telepot.Bot('438212244:AAGQ1VhzLHowzxUTFiT6GTirIVxjL3PO79I')
         #po = Post.objects.latest('id')
-        po=Post.objects.last()
+        po=Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
         #c=Post.published_date.last()
         #result = [Post.published_date.latest('date_added')]
 
-        text='Hi @ all this is from timeline @cronbyte  \n Title: meeting  \n Time: after ILUGD meet  \n\n\n   still need hellozee chat id   '
+        text='please confirm for the weekend meet [sunday or (saturday @ null meet)]'
+
+
         
-        bot.sendMessage(499134543, po )
+        bot.sendMessage(499134543, text )
         #ajx
-      #  bot.sendMessage(680139252, text)
+        bot.sendMessage(680139252, text)
         #mason
-      #  bot.sendMessage(660463343, text)
+        bot.sendMessage(660463343, text)
         #ayan
-      #  bot.sendMessage(400670226, text)
+        bot.sendMessage(400670226, text)
         #alok
-       # bot.sendMessage(271397625, text)
+        bot.sendMessage(271397625, text)
         #dunken
-     #   bot.sendMessage(399195869, text)
+        bot.sendMessage(399195869, text)
         #math
-      #  bot.sendMessage(407034913, text)
+        bot.sendMessage(407034913, text)
         #bit_bang
-      #  bot.sendMessage(-1001163644641,text)
+        bot.sendMessage(-1001163644641,text)
 
 
 
