@@ -1,24 +1,29 @@
 from django.shortcuts import render
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
-# Create your views here.
+def simple_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'core/simple_upload.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'core/simple_upload.html')
 
-from .forms import Up  
 
-def profile(request):
-    # if this is a POST request we need to process the form data
+
+
+def model_form_upload(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = Up(request.POST)
-        # check whether it's valid:
+        form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
+            form.save()
+            return redirect('home')
     else:
-        form = Up()
-
-    return render(request, 'profile.html', {'form': form})    
-
+        form = DocumentForm()
+    return render(request, 'core/model_form_upload.html', {
+        'form': form
+    })    
